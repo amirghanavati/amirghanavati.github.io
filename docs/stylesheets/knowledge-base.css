@@ -1,9 +1,17 @@
-.md-typeset {
-  font-size: 0.8rem;
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("./vazirmatn.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
 }
 
-[dir="rtl"] {
-  --md-text-font: Tahoma, system-ui;
+html[lang="fa"] {
+  --md-text-font: "Vazirmatn", Tahoma, system-ui;
+}
+
+.md-typeset {
+  font-size: 0.8rem;
 }
 
 .kb-language-switcher {
