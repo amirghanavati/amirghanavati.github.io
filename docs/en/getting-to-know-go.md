@@ -116,13 +116,24 @@ A package groups related `.go` files in one directory. Use `import` to bring ano
 
 ### Format verbs
 
-| Verb | Use |
-| --- | --- |
-| `%v`, `%T` | Default value formatting or the value's type |
-| `%d`, `%b`, `%o`, `%x`, `%X` | Integers in decimal, binary, octal, and hexadecimal |
-| `%f`, `%.2f` | Floating-point numbers, with two decimal places in the second form |
-| `%s`, `%q`, `%c` | Strings, quoted strings, or characters |
-| `%t`, `%p` | Boolean values or pointer addresses |
+A format verb tells `Printf` or `Sprintf` how to display a value. Each example shows the input value on the left and the resulting text on the right.
+
+| Verb | Use | Example |
+| --- | --- | --- |
+| `%v` | Value in its default format | `3.14 → 3.14` |
+| `%T` | Type of the value | `42 → int` |
+| `%d` | Integer in decimal | `42 → 42` |
+| `%b` | Integer in binary | `10 → 1010` |
+| `%o` | Integer in octal | `10 → 12` |
+| `%x` | Integer in lowercase hexadecimal | `255 → ff` |
+| `%X` | Integer in uppercase hexadecimal | `255 → FF` |
+| `%f` | Floating-point number with six decimal places | `3.14159 → 3.141590` |
+| `%.2f` | Floating-point number rounded to two decimal places | `3.14159 → 3.14` |
+| `%s` | String text | `"Go" → Go` |
+| `%q` | Double-quoted string with special characters escaped | `"Go" → "Go"` |
+| `%c` | Character for a Unicode code point | `65 → A` |
+| `%t` | Boolean as `true` or `false` | `true → true` |
+| `%p` | Address stored in a pointer, in hexadecimal | `&n → 0x…` |
 
 ### Checking input
 

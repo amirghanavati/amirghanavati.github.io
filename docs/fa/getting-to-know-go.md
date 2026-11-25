@@ -116,13 +116,24 @@ for i := 1; i < 15; i++ {
 
 ### فعل‌های قالب‌بندی (Format Verbs)
 
-| فعل | کاربرد |
-| --- | --- |
-| `%v`، `%T` | نمایش مقدار با قالب پیش‌فرض یا نمایش نوع آن |
-| `%d`، `%b`، `%o`، `%x`، `%X` | نمایش عدد صحیح در مبناهای ۱۰، ۲، ۸ و ۱۶ |
-| `%f`، `%.2f` | نمایش عدد اعشاری، با دو رقم بعد از ممیز در حالت دوم |
-| `%s`، `%q`، `%c` | نمایش رشته، رشتهٔ نقل‌قول‌شده یا کاراکتر |
-| `%t`، `%p` | نمایش مقدار بولی یا آدرس اشاره‌گر |
+فعل قالب‌بندی مشخص می‌کند `Printf` یا `Sprintf` هر مقدار را چطور نمایش دهد. در ستون نمونه، مقدار ورودی سمت چپ و متن خروجی سمت راست است.
+
+| فعل | کاربرد | نمونه |
+| --- | --- | --- |
+| <bdi dir="ltr"><code>%v</code></bdi> | مقدار با قالب پیش‌فرض | <bdi dir="ltr"><code>3.14 → 3.14</code></bdi> |
+| <bdi dir="ltr"><code>%T</code></bdi> | نوع مقدار | <bdi dir="ltr"><code>42 → int</code></bdi> |
+| <bdi dir="ltr"><code>%d</code></bdi> | عدد صحیح در مبنای ۱۰ | <bdi dir="ltr"><code>42 → 42</code></bdi> |
+| <bdi dir="ltr"><code>%b</code></bdi> | عدد صحیح در مبنای ۲ | <bdi dir="ltr"><code>10 → 1010</code></bdi> |
+| <bdi dir="ltr"><code>%o</code></bdi> | عدد صحیح در مبنای ۸ | <bdi dir="ltr"><code>10 → 12</code></bdi> |
+| <bdi dir="ltr"><code>%x</code></bdi> | عدد صحیح در مبنای ۱۶ با حروف کوچک | <bdi dir="ltr"><code>255 → ff</code></bdi> |
+| <bdi dir="ltr"><code>%X</code></bdi> | عدد صحیح در مبنای ۱۶ با حروف بزرگ | <bdi dir="ltr"><code>255 → FF</code></bdi> |
+| <bdi dir="ltr"><code>%f</code></bdi> | عدد اعشاری با شش رقم بعد از ممیز | <bdi dir="ltr"><code>3.14159 → 3.141590</code></bdi> |
+| <bdi dir="ltr"><code>%.2f</code></bdi> | عدد اعشاری گرد‌شده تا دو رقم بعد از ممیز | <bdi dir="ltr"><code>3.14159 → 3.14</code></bdi> |
+| <bdi dir="ltr"><code>%s</code></bdi> | متن رشته | <bdi dir="ltr"><code>"Go" → Go</code></bdi> |
+| <bdi dir="ltr"><code>%q</code></bdi> | رشته داخل دابل‌کوتیشن، با escape کردن نویسه‌های خاص | <bdi dir="ltr"><code>"Go" → "Go"</code></bdi> |
+| <bdi dir="ltr"><code>%c</code></bdi> | نویسهٔ متناظر با یک کدپوینت Unicode | <bdi dir="ltr"><code>65 → A</code></bdi> |
+| <bdi dir="ltr"><code>%t</code></bdi> | مقدار بولی به‌صورت `true` یا `false` | <bdi dir="ltr"><code>true → true</code></bdi> |
+| <bdi dir="ltr"><code>%p</code></bdi> | آدرسِ موجود در اشاره‌گر در مبنای ۱۶ | <bdi dir="ltr"><code>&amp;n → 0x…</code></bdi> |
 
 ### بررسی ورودی
 
