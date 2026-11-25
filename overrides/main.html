@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% import "partials/knowledge-base.html" as kb with context %}
+
+{% set path = page.url | d("") %}
+{% set locale = path[:2] if path[:3] in ["en/", "fa/"] else "en" %}
+{% set is_persian = locale == "fa" %}
+{% set topic_path = path[3:] if path[:3] in ["en/", "fa/"] else "" %}
+{% set syllabus_section = nav.items | selectattr("title", "equalto", "فارسی" if is_persian else "English") | first %}
+
+{% block extrahead %}
+  {% if page %}
+    <link rel="alternate" hreflang="en" href="{{ ('en/' ~ topic_path) | url }}">
+    <link rel="alternate" hreflang="fa" href="{{ ('fa/' ~ topic_path) | url }}">
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <nav class="kb-language-switcher" aria-label="{{ 'انتخاب زبان' if is_persian else 'Language switcher' }}">
+    <a href="{{ ('en/' ~ topic_path) | url }}" lang="en" hreflang="en" dir="ltr"{% if path[:3] == 'en/' %} aria-current="page"{% endif %}>{{ 'English' if path else 'Go Knowledge Base (English)' }}</a>
+    <a href="{{ ('fa/' ~ topic_path) | url }}" lang="fa" hreflang="fa" dir="rtl"{% if is_persian %} aria-current="page"{% endif %}>{{ 'فارسی' if path else 'دانشنامهٔ Go (فارسی)' }}</a>
+  </nav>
+
+  {% if topic_path %}
+    <p class="kb-topic-status">
+      {{ 'وضعیت مستندات' if is_persian else 'Documentation status' }}
+      {{ kb.status(topic_path[:-1]) }}
+    </p>
+  {% endif %}
+
+  {{ super() }}
+
+  {% if page.meta.syllabus %}
+    <section class="kb-syllabus" aria-labelledby="course-syllabus">
+      <h2 id="course-syllabus">{{ 'سرفصل‌های دوره' if is_persian else 'Course syllabus' }}</h2>
+      {% set topics = syllabus_section.children | rejectattr("url", "equalto", locale ~ "/") | list if syllabus_section else [] %}
+      {% set learning_progress = config.extra.learning_progress %}
+      {% if topics %}
+        <table class="kb-syllabus-table" aria-labelledby="course-syllabus">
+          <thead>
+            <tr>
+              <th scope="col">{{ 'موضوع' if is_persian else 'Topic' }}</th>
+              <th scope="col">{{ 'وضعیت مستندات' if is_persian else 'Documentation status' }}</th>
+              {% if learning_progress %}
+                <th scope="col">{{ 'پیشرفت یادگیری' if is_persian else 'Learning progress' }}</th>
+              {% endif %}
+            </tr>
+          </thead>
+          <tbody>{{ kb.syllabus_rows(topics, learning_progress) }}</tbody>
+        </table>
+      {% else %}
+        <p class="kb-syllabus-empty">{{ 'در انتظار دریافت سرفصل‌های دوره.' if is_persian else 'Awaiting the course syllabus.' }}</p>
+      {% endif %}
+      <p class="kb-status-legend">
+        <span>{{ 'وضعیت‌های مستندات' if is_persian else 'Documentation statuses' }}</span>
+        {% for state in ["todo", "in_progress", "done"] %}
+          {{ kb.badge(state) }}
+        {% endfor %}
+      </p>
+    </section>
+  {% endif %}
+{% endblock %}

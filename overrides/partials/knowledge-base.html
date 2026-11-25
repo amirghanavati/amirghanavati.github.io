@@ -1,0 +1,29 @@
+{% macro badge(state) -%}
+  <bdi class="kb-status kb-status--{{ state }}" lang="en" dir="ltr">{{ config.extra.documentation_status_labels[state] }}</bdi>
+{%- endmacro %}
+
+{% macro status(topic) -%}
+  {% set state = config.extra.documentation_status[topic] %}
+  {{ badge(state if state in config.extra.documentation_status_labels else "todo") }}
+{%- endmacro %}
+
+{% macro syllabus_rows(items, learning_progress) -%}
+  {% for item in items %}
+    {% if item.children %}
+      <tr class="kb-syllabus-section">
+        <td colspan="{{ 3 if learning_progress else 2 }}">{{ item.title | e }}</td>
+      </tr>
+      {{ syllabus_rows(item.children, learning_progress) }}
+    {% elif item.url %}
+      {% set topic = item.url[3:-1] %}
+      <tr>
+        <th scope="row"><a href="{{ item.url | url }}">{{ item.title | e }}</a></th>
+        <td>{{ status(topic) }}</td>
+        {% if learning_progress %}
+          {% set percent = learning_progress[topic] %}
+          <td>{% if percent is number %}<bdi dir="ltr">{{ percent }}%</bdi>{% else %}—{% endif %}</td>
+        {% endif %}
+      </tr>
+    {% endif %}
+  {% endfor %}
+{%- endmacro %}

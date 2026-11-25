@@ -1,0 +1,187 @@
+[project]
+site_url = "https://amirghanavati.github.io/"
+site_name = "Go Knowledge Base"
+use_directory_urls = true
+exclude_docs = "markdown.md"
+# site_description = "Your project description"
+# site_author = "Your name"
+
+# copyright = "Copyright &copy; 2026 Your name"
+
+# repo_url = "https://github.com/user/repo"
+# repo_name = "user/repo"
+# edit_uri = "edit/main/docs/"
+
+nav = [
+  "index.md",
+  { English = [
+    "en/index.md",
+    "en/introduction.md",
+    "en/getting-to-know-go.md",
+    "en/data-structures-and-functions.md",
+    "en/pointers-and-structs.md",
+    "en/concurrency.md",
+    "en/errors.md",
+    "en/testing.md",
+    "en/course-exercises.md",
+    "en/toward-larger-projects.md",
+    "en/project-1.md",
+    "en/databases-and-gorm.md",
+    "en/networking-and-backend-fundamentals.md",
+    "en/gin.md",
+    "en/echo.md",
+    "en/websocket.md",
+    "en/project-2.md",
+    "en/microservices.md",
+  ] },
+  { "فارسی" = [
+    "fa/index.md",
+    "fa/introduction.md",
+    "fa/getting-to-know-go.md",
+    "fa/data-structures-and-functions.md",
+    "fa/pointers-and-structs.md",
+    "fa/concurrency.md",
+    "fa/errors.md",
+    "fa/testing.md",
+    "fa/course-exercises.md",
+    "fa/toward-larger-projects.md",
+    "fa/project-1.md",
+    "fa/databases-and-gorm.md",
+    "fa/networking-and-backend-fundamentals.md",
+    "fa/gin.md",
+    "fa/echo.md",
+    "fa/websocket.md",
+    "fa/project-2.md",
+    "fa/microservices.md",
+  ] },
+]
+
+extra_css = ["stylesheets/knowledge-base.css"]
+# extra_javascript = ["javascripts/extra.js"]
+
+[project.extra.documentation_status_labels]
+todo = "TODO"
+in_progress = "IN PROGRESS"
+done = "DONE"
+
+[project.extra.documentation_status]
+introduction = "todo"
+getting-to-know-go = "todo"
+data-structures-and-functions = "todo"
+pointers-and-structs = "todo"
+concurrency = "todo"
+errors = "todo"
+testing = "todo"
+course-exercises = "todo"
+toward-larger-projects = "todo"
+project-1 = "todo"
+databases-and-gorm = "todo"
+networking-and-backend-fundamentals = "todo"
+gin = "todo"
+echo = "todo"
+websocket = "todo"
+project-2 = "todo"
+microservices = "todo"
+
+[project.extra.learning_progress]
+
+[project.theme]
+# variant = "classic"
+custom_dir = "overrides"
+# favicon = "images/favicon.png"
+language = "en"
+font = false
+features = [
+  "announce.dismiss",
+  # "content.action.edit",
+  # "content.action.view",
+  "content.code.annotate",
+  "content.code.copy",
+  "content.code.select",
+  "content.footnote.tooltips",
+  "content.tabs.link",
+  "content.tooltips",
+  # "header.autohide",
+  # "navigation.expand",
+  "navigation.indexes",
+  # "navigation.prune",
+  "navigation.sections",
+  # "navigation.tabs",
+  # "navigation.tabs.sticky",
+  "navigation.top",
+  "navigation.tracking",
+  "search.highlight",
+  # "toc.follow",
+  # "toc.integrate",
+]
+
+# logo = "assets/logo.png"
+
+# [project.theme.icon]
+# logo = "lucide/smile"
+
+# [project.theme.font]
+# text = "Inter"
+# code = "Jetbrains Mono"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme)"
+primary = "teal"
+accent = "teal"
+toggle.icon = "lucide/sun-moon"
+toggle.name = "Switch to light mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "teal"
+accent = "teal"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "teal"
+accent = "teal"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to system preference"
+
+# [[project.extra.social]]
+# icon = "fontawesome/brands/github"
+# link = "https://github.com/user/repo"
+
+# [[project.extra.social]]
+# icon = "fontawesome/brands/mastodon"
+# link = "https://fosstodon.org/@user"
+
+[project.markdown_extensions]
+abbr = {}
+admonition = {}
+attr_list = {}
+def_list = {}
+footnotes = {}
+md_in_html = {}
+toc.permalink = true
+pymdownx.arithmatex.generic = true
+pymdownx.betterem = {}
+pymdownx.caret = {}
+pymdownx.details = {}
+pymdownx.emoji.emoji_generator = "zensical.extensions.emoji.to_svg"
+pymdownx.emoji.emoji_index = "zensical.extensions.emoji.twemoji"
+pymdownx.highlight.anchor_linenums = true
+pymdownx.highlight.line_spans = "__span"
+pymdownx.highlight.pygments_lang_class = true
+pymdownx.inlinehilite = {}
+pymdownx.keys = {}
+pymdownx.magiclink = {}
+pymdownx.mark = {}
+pymdownx.smartsymbols = {}
+# pymdownx.snippets.base_path = "includes"
+pymdownx.superfences.custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]
+pymdownx.tabbed.alternate_style = true
+pymdownx.tabbed.combine_header_slug = true
+pymdownx.tasklist.custom_checkbox = true
+pymdownx.tilde = {}

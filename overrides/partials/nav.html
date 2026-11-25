@@ -1,0 +1,17 @@
+{% import "partials/nav-item.html" as item with context %}
+
+{% if syllabus_section %}
+  <nav class="md-nav md-nav--primary" aria-label="{{ lang.t('nav') }}" data-md-level="0">
+    <label class="md-nav__title" for="__drawer">
+      <a href="{{ (locale ~ '/') | url }}" class="md-nav__button md-logo" aria-label="{{ config.site_name }}">
+        {% include "partials/logo.html" %}
+      </a>
+      {{ 'دانشنامهٔ Go' if is_persian else config.site_name }}
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      {% for nav_item in syllabus_section.children %}
+        {{ item.render(nav_item, '__nav_' ~ loop.index, 1) }}
+      {% endfor %}
+    </ul>
+  </nav>
+{% endif %}
