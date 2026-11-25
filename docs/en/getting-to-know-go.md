@@ -138,10 +138,3 @@ fmt.Printf("Year=%d, Month=%d, Day=%d\n", year, month, day)
 ```
 
 Input separators and spacing matter with `Scanf`. For example, `2025/11/08` does not match the hyphenated format. Use `Fscanf` and `Fprintf` to read from another source or write to another destination.
-
-## Chapter exercises
-
-- **Equivalent weight on a planet**. Start with Earth weight as an `int`, convert it to `float64`, and multiply by the gravity ratio constant. A weight of 80 and a ratio of 0.3783 give 30.264.
-- **Loan rules in the exercise**. Check for age under 18, bad credit history, and monthly income under 10 million tomans, in that order. The first matching rule determines the rejection reason. Print `Loan approved` if the application passes all three checks.
-- **Hop game**. Count from 1 through `q` and print each number by default. For each multiple of a positive `p`, print `Hop` on one line `i / p` times. With `p = 3`, 6 becomes `Hop Hop`.
-- **Command-line calculator**. Read the operator at the start of each iteration. For `+`, `-`, `*`, and `/`, read two `float64` values and print the result with `Result: %.4f`. Continue to the next iteration after printing `Unknown command` or reporting division by zero with `Error: Invalid mixture`. The `exit` command prints `Lab console terminated` and ends the program before reading any operands.
