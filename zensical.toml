@@ -67,7 +67,7 @@ done = "DONE"
 [project.extra.documentation_status]
 introduction = "todo"
 getting-to-know-go = "done"
-data-structures-and-functions = "todo"
+data-structures-and-functions = "done"
 pointers-and-structs = "todo"
 concurrency = "todo"
 errors = "todo"
